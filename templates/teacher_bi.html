@@ -1,0 +1,122 @@
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>班级网站 - 教师 - 毕老师</title>  
+        <script>  
+        function sendToBackend() {  
+            // 获取输入框的值  
+            let inputValue2 = document.getElementById('inputField').value;  
+              
+            // 发送POST请求到后端  
+            fetch('/sends', {  
+                method: 'POST',  
+                headers: {  
+                    'Content-Type': 'application/json'  
+                },  
+                body: JSON.stringify({ 'input': inputValues2 })  
+            })  
+            .then(response => {  
+                if (response.ok) {  
+                    return response.text();  
+                }  
+                throw new Error('Network response was not ok.');  
+            })  
+            .then(data => {  
+                // 显示后端返回的消息  
+                document.getElementById('response').textContent = data;  
+            })  
+            .catch(error => {  
+                console.error('Fetch error:', error);  
+                // 显示错误信息  
+                document.getElementById('response').textContent = 'Error: ' + error.message;  
+            });  
+        }  
+    </script>
+    <style>  
+        body {  
+            font-family: Arial, sans-serif;  
+            margin: 0;  
+            padding: 20px;  
+        }  
+        h1 {  
+            color: #333;  
+        }  
+        .info {  
+            margin-bottom: 20px;  
+        }  
+        .course-list {  
+            list-style-type: none;  
+            padding: 0;  
+        }  
+        .course-item {  
+            margin-bottom: 10px;  
+            padding: 10px;  
+            background-color: #f4f4f4;  
+            border-radius: 5px;  
+        }  
+        .login-form {  
+            margin-top: 30px;  
+        }  
+        label, input {  
+            display: block;  
+            margin-bottom: 10px;  
+        }  
+        input[type="submit"] {  
+            background-color: #4CAF50;  
+            color: white;  
+            padding: 10px 20px;  
+            border: none;  
+            border-radius: 5px;  
+            cursor: pointer;  
+        }  
+    </style>  
+</head>  
+<body>  
+    <h1>班级网站 - 教师界面 - 毕老师</h1>  
+      
+    <div class="info">  
+        <h2>基本信息</h2>  
+        <p>班级名称：三班</p>  
+        <p>年级：五年级</p>  
+        <p>学科：英语（外语）学科</p>
+        <h2 id="output">英语作业：</h2>  
+    </div>  
+      
+    <h2>课程列表</h2>  
+    <ul class="course-list">  
+        <li class="course-item">  
+            <h3>周一</h3>  
+            <p>第五节(下午第一节)</p>  
+        </li>  
+        <li class="course-item">  
+            <h3>周二</h3>  
+            <p>第三节（上午第三节）</p>  
+        </li>  
+        <li class="course-item">  
+            <h3>周三</h3>  
+            <p>第三节（上午第三节）</p>  
+        </li>
+        <li class="course-item">  
+            <h3>周四</h3>  
+            <p>第五节（下午第一节）</p>  
+        </li>  
+    </ul>
+        <div class="info">    
+        <p>学科：劳动学科</p>  
+    </div>  
+      
+    <h2>课程列表</h2>  
+     <li class="course-item">  
+            <h3>周五</h3>  
+            <p>第三节（上午第三节）</p>  
+        </li>   
+     <input type="text" id="inputField" placeholder="在此留下英语作业">  
+    <button onclick="sendToBackend()">Send</button> 
+
+   
+  
+</script>    
+</body>  
+</html>

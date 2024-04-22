@@ -1,0 +1,16 @@
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <title>Assignment List</title>  
+</head>  
+<body>  
+    <h1>Assignment List</h1>  
+    <ul>  
+        {% for assignment in assignments %}  
+            <li>{{ assignment.title }} - {{ assignment.description }}</li>  
+        {% endfor %}  
+    </ul>  
+    <a href="{{ url_for('add_assignment') }}">Add Assignment</a>  
+</body>  
+</html>

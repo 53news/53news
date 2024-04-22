@@ -1,0 +1,19 @@
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <title>Add Assignment</title>  
+</head>  
+<body>  
+    <h1>Add Assignment</h1>  
+    <form method="post" action="{{ url_for('add_assignment') }}">  
+        <label for="title">Title:</label>  
+        <input type="text" name="title" id="title" required>  
+  
+        <label for="description">Description:</label>  
+        <textarea name="description" id="description" required></textarea>  
+  
+        <button type="submit">Submit</button>  
+    </form>  
+</body>  
+</html>
